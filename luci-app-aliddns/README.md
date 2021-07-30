@@ -7,6 +7,8 @@ LEDE/OpenWrt LuCI for AliDDNS
 
 本软件包是 AliDDNS 的 LuCI 控制界面,
 
+![Alt text](screenshot.png?raw=true "Screenshot")
+
 软件包文件结构:
 ```
 /
