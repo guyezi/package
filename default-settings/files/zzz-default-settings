@@ -10,6 +10,55 @@ uci commit system
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
+# Network Set
+uci set network.lan.ipaddr=192.168.8.1
+uci set network.lan.netmask='255.255.252.0'
+uci set network.lan.ifname='eth0 eth1 eth2'
+uci set network.lan.broadcast='192.168.11.255'
+uci set network.wan.ifname='eth5'
+uci set network.wan.proto='pppoe'
+uci set network.wan6.ifname='eth5'
+uci set network.2wan=interface
+uci set network.2wan.ifname='eth4'
+uci set network.2wan.proto='pppoe'
+uci set network.2wan6.ifname='eth4'
+uci commit network
+
+uci set firewall.@zone[1].forward='ACCEPT'
+uci commit firewall
+
+uci set dhcp.lan.start='2'
+uci set dhcp.lan.limit='254'
+uci commit dhcp
+
+uci set arpbind.@arpbind[0]=arpbind
+uci set arpbind.@arpbind[0].ifname='br-lan'
+uci set arpbind.@arpbind[0].ipaddr='192.168.8.2'
+uci set arpbind.@arpbind[0].macaddr='a8:a1:59:26:f8:d3'
+uci set arpbind.@arpbind[1]=arpbind
+uci set arpbind.@arpbind[1].ifname='br-lan'
+uci set arpbind.@arpbind[1].ipaddr='192.168.8.3'
+uci set arpbind.@arpbind[1].macaddr='00:11:32:5d:97:0c'
+uci commit arpbind
+
+uci set uhttpd.defaults.commonname='GWRT'
+uci commit uhttpd
+
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+#uci set
+
+
+
 #rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
 #rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
 #rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
