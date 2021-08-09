@@ -11,7 +11,7 @@ uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
 # Network Set
-uci set network.lan.ipaddr=192.168.8.1
+uci set network.lan.ipaddr='192.168.8.1'
 uci set network.lan.netmask='255.255.252.0'
 uci set network.lan.ifname='eth0 eth1 eth2'
 uci set network.lan.broadcast='192.168.11.255'
